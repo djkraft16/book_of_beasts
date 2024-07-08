@@ -1,40 +1,43 @@
 import React, { useState } from 'react';
 import { getChatResponse } from '../services/openaiService';
-import '../App.css';  // Ensure to import the CSS file
+import MonsterCard from './Card';
+import '../Chat.css';
 
 const Chat = () => {
-  const [message, setMessage] = useState('');
-  const [chat, setChat] = useState([]);
+  const [monsters, setMonsters] = useState([]);
+  const [input, setInput] = useState('');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const userMessage = { role: "user", content: message };
-    setChat([...chat, userMessage]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
 
-    const response = await getChatResponse(message);
-    const botMessage = response.choices[0].message;
-    setChat([...chat, userMessage, botMessage]);
-    setMessage('');
+    try {
+      const response = await getChatResponse(input);
+      const newMonster = JSON.parse(response); // Assuming response is a JSON string of monster data
+      setMonsters((prevMonsters) => [...prevMonsters, newMonster]);
+    } catch (error) {
+      console.error('Error fetching response:', error);
+    }
+
+    setInput('');
   };
 
   return (
-    <div className="chat-container">
-      <div>
-        {chat.map((msg, index) => (
-          <div key={index} className={msg.role === "user" ? "user-message" : "bot-message"}>
-            {msg.content}
-          </div>
-        ))}
-      </div>
+    <div className="chat-app">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type a message..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Describe a new monster..."
         />
-        <button type="submit">Send</button>
+        <button type="submit">Generate Monster</button>
       </form>
+      <div className="monster-cards-container">
+        {monsters.map((monster, index) => (
+          <MonsterCard key={index} monster={monster} />
+        ))}
+      </div>
     </div>
   );
 };

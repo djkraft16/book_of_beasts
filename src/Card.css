@@ -1,0 +1,46 @@
+/* Card.css */
+
+.monster-card {
+  background: url('../public/wood-background.jpg'); /* Replace with your texture image path */
+  border: 1px solid #8b4513; /* Dark brown border */
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  width: 300px;
+  margin: 20px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace; /* Monospace font for the card */
+}
+
+.monster-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #8b4513;
+}
+
+.monster-details {
+  padding: 15px;
+  background: rgba(255, 248, 220, 0.8); /* Slightly transparent background */
+}
+
+.monster-name {
+  margin: 0;
+  font-size: 1.5em;
+  color: #8b4513; /* Dark brown text */
+}
+
+.monster-description {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.monster-stats {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.monster-stats p {
+  margin: 5px 0;
+  color: #333;
+}

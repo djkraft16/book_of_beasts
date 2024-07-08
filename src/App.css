@@ -13,6 +13,7 @@ body {
   background-size: cover;
   display: flex;
   justify-content: center;
+  padding: 50px;
   align-items: center;
   height: 100vh;
   color: #fff;
@@ -29,7 +30,7 @@ body {
 /* Header */
 .App-header {
   margin-bottom: 20px;
-  margin-top: 10rem;
+  margin-top: 4rem;
 }
 
 .logo {
@@ -70,78 +71,21 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Chat Container */
-.chat-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 60vh;
-  overflow-y: auto;
+.card-container { /* Left */
+  justify-content: center;
+  flex: 1; /* Flex-grow: Takes up available space */
   padding: 20px;
-  border: 10px solid #8b4513; /* Dark brown border */
-  border-radius: 15px;
-  background: url('../public/parchment-background.jpg');
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Message Styling */
-.user-message,
-.bot-message {
-  padding: 10px 15px;
-  margin-bottom: 1rem;
-  text-align: left;
-  border-radius: 20px;
-  width: fit-content;
-  max-width: 80%;
-  background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
-  color: #333;
-  font-family: 'Courier New', Courier, monospace; /* Monospace font for messages */
+.chat-container { /* Right */
+  justify-content: center;
+  flex: 1; /* Flex-grow: Takes up available space */
+  padding: 20px;
 }
 
-.user-message {
-  align-self: flex-end;
-  float: right;
-  border-bottom-right-radius: 0px;
-  background-color: rgba(139, 69, 19, 0.8); /* Light blue for user message */
-  color: #000;
-}
-
-.bot-message {
-  align-self: flex-end;
-  float: left;
-  border-bottom-left-radius: 0px;
-  background-color: rgba(255, 248, 220, 0.8); /* Cornsilk color for bot message */
-  color: #000;
-}
-
-/* Form Styling */
-form {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-input[type="text"] {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #8b4513;
-  border-radius: 20px;
-  font-size: 16px;
-  background-color: rgba(255, 248, 220, 0.8); /* Match the bot message color */
-  color: #333;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #8b4513; /* Dark brown button */
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #5a3310; /* Darker shade on hover */
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
 }
