@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { getChatResponse } from '../services/openaiService';
-import MonsterCard from './Card';
 import '../Chat.css';
 
-const Chat = () => {
-  const [monsters, setMonsters] = useState([]);
+const Chat = ({ addMonster }) => {
   const [input, setInput] = useState('');
+  const [extraText, setExtraText] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,8 +12,8 @@ const Chat = () => {
 
     try {
       const response = await getChatResponse(input);
-      const newMonster = JSON.parse(response); // Assuming response is a JSON string of monster data
-      setMonsters((prevMonsters) => [...prevMonsters, newMonster]);
+      addMonster(response.monster);
+      setExtraText(response.extraText);
     } catch (error) {
       console.error('Error fetching response:', error);
     }
@@ -23,7 +22,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat-app">
+    <div className="chat">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -33,11 +32,7 @@ const Chat = () => {
         />
         <button type="submit">Generate Monster</button>
       </form>
-      <div className="monster-cards-container">
-        {monsters.map((monster, index) => (
-          <MonsterCard key={index} monster={monster} />
-        ))}
-      </div>
+      {extraText && <div className="extra-text">{extraText}</div>}
     </div>
   );
 };
