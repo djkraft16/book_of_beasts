@@ -17,7 +17,7 @@ const App = () => {
       </div>
       <header className="App-header">
         <img src="/logo512.png" alt="Site Logo" className="logo" />
-        <h1>Describe your Monster</h1>
+        <h1>Describe your monster to B.O.B. and he will produce it for you!</h1>
       </header>
       <Chat addMonster={addMonster} />
       <div className="monster-cards-container">

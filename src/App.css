@@ -9,7 +9,7 @@
 }
 
 body {
-  background: url('../public/wood-background.jpg') no-repeat center center fixed;
+  background: url('../public/parchment-background.jpg') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
