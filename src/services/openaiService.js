@@ -4,19 +4,29 @@ const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
 export const getChatResponse = async (userInput) => {
   const templatePrompt = `
-    You are a D&D monster generator. Create a new monster with the following attributes in JSON format:
+    You are a D&D monster generator. Create a new monster with the following required [R] and optional [O] attributes in JSON format:
     {
-      "name": "Monster Name",
-      "description": "Description of the monster",
-      "image": "URL to an image of the monster",
-      "hp": "Hit Points",
-      "ac": "Armor Class",
-      "strength": "Strength score",
-      "dexterity": "Dexterity score",
-      "constitution": "Constitution score",
-      "intelligence": "Intelligence score",
-      "wisdom": "Wisdom score",
-      "charisma": "Charisma score"
+      "name": "Monster Name [R]",
+      "desc_long": "Description of the monster [R]",
+      "image": "URL to an image of the monster [R]",
+      "desc_short": "Type, species, or race of monster and its alignment [R]",
+      "hp": "Hit Points [R]",
+      "ac": "Armor Class [R] (and type of armor, if any [O])",
+      "speed": "Monster's speed in ft. [R]",
+      "str": "Strength score [R]",
+      "dex": "Dexterity score [R]",
+      "con": "Constitution score [R]",
+      "int": "Intelligence score [R]",
+      "wis": "Wisdom score [R]",
+      "cha": "Charisma score [R]",
+      "saves": "Saving throws, if any (leave blank if none) [O]",
+      "skills": "Monster's skills and the bonus, if any [O]",
+      "res": "Damage resistances, if any [O]",
+      "senses": "Passive perception score [O]",
+      "lang": "Languages, if any [O]",
+      "effects": "Passive abilities or actions taken by the monster, if any [O]",
+      "actions": "Active abilities or actions the monster can take on their combat turn and its damage, if any [R]",
+      "reactions": "Reactions or responsive abilities, if any [O]"
     }
     Based on the following input:
   `;

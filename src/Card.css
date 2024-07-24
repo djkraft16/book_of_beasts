@@ -6,7 +6,7 @@
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  width: 300px;
+  width: fit-content;
   margin: 20px;
   text-align: center;
   font-family: 'Courier New', Courier, monospace; /* Monospace font for the card */
@@ -43,4 +43,8 @@
 .monster-stats p {
   margin: 5px 0;
   color: #333;
+}
+
+.monster-attributes {
+  text-align: center;
 }
