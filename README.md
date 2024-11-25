@@ -3,8 +3,7 @@ Book of Beasts is a tool used for creating monsters for the game Dungeons & Drag
 
 Book of Beasts is still being developed and the site is not yet live, but the current code is all accessible here with the new, finalized UI coming soon once it is finished and ready to be hooked up to the backend. The current version of the site has the ChatGPT query functionality working as intended, and I am currently working on the web design for the site's UI. Here are some images of the UI in development:
 
-![alt text](https://github.com/djkraft16/book_of_beasts/blob/resources/Desktop.png?raw=true)
-![alt text](https://github.com/djkraft16/book_of_beasts/blob/resources/Phone.png?raw=true)
+![alt text](https://github.com/djkraft16/book_of_beasts/blob/resources/Desktop.png?raw=true) ![alt text](https://github.com/djkraft16/book_of_beasts/blob/resources/Phone.png?raw=true)
 
 The backend was made using the ReactJS framework in tandem with the OpenAI API. The OpenAI API allows the site to submit queries to the ChatGPT-4o model and take a JSON output used to display information on UI cards once it's parsed. The input from the user is a description (or image - coming soon) of the monster which is then fed to the ChatGPT model which outputs the monster's stats, description, and image (also coming soon) in JSON format so that it can be easily parsed and put in the proper locations on the UI cards displayed to the user.
 
